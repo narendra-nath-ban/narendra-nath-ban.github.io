@@ -1,0 +1,10 @@
+{
+  "name": "nnb-blog-site",
+  "version": "1.0.0",
+  "description": "Portfolio + blog website with editable backend",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  }
+}
