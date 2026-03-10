@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Writing · Narendra Nath Banerjee</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html">NNB</a>
+      <ul class="nav-links">
+        <li><a data-nav href="index.html">Home</a></li><li><a data-nav href="work.html">Work</a></li><li><a data-nav href="writings.html">Writing</a></li><li><a data-nav href="about.html">About</a></li><li><a data-nav href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+  <main class="container">
+    <section class="section">
+      <h1 class="page-title">All <span>Writings</span></h1>
+      <p class="lead">This page is backend-driven. Publish from admin, it appears here automatically.</p>
+      <div id="allPosts" class="posts-list"></div>
+    </section>
+  </main>
+  <footer class="container footer"><a class="button" href="admin.html">Manage posts</a></footer>
+  <script src="app.js"></script>
+  <script>renderPostFeed('allPosts');</script>
+</body>
+</html>
