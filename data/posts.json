@@ -8,13 +8,4 @@
     "featured": true,
     "url": "posts/post-001.html"
   },
-  {
-    "id": "post-002",
-    "title": "Why Every Economics Student Should Read More Novels",
-    "summary": "And why every novelist should take one econometrics course.",
-    "type": "Rant",
-    "publishedAt": "2025-02-16T10:00:00.000Z",
-    "featured": false,
-    "url": "posts/post-002.html"
-  }
 ]

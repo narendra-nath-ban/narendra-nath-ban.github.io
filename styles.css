@@ -293,3 +293,13 @@ a {
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
+
+.about-img {
+  width: 280px;
+  height: 360px;
+  object-fit: cover;
+  object-position: center top; /* keeps your face in frame, adjust if needed */
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  display: block;
+}
