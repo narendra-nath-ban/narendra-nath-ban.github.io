@@ -24,14 +24,14 @@ async function renderPostFeed(targetId, limit = null) {
     const list = typeof limit === 'number' ? sorted.slice(0, limit) : sorted;
 
     if (!list.length) {
-      root.innerHTML = '<div class="card">No posts yet. Add your first post by editing data/posts.json.</div>';
+      root.innerHTML = '<div class="card">No posts yet. Add your first post by creating a post page and registering it in data/posts.json.</div>';
       return;
     }
 
     root.innerHTML = list
       .map(
         (post, index) => `
-          <a class="post-row" href="post.html?id=${encodeURIComponent(post.id)}">
+          <a class="post-row" href="${post.url || `post.html?id=${encodeURIComponent(post.id)}`}">
             <div class="num">${String(index + 1).padStart(3, '0')}</div>
             <div>
               <h3 class="post-title">${post.title}</h3>
@@ -47,40 +47,4 @@ async function renderPostFeed(targetId, limit = null) {
   }
 }
 
-async function renderPostDetail() {
-  const root = document.getElementById('postDetail');
-  if (!root) return;
-
-  const params = new URLSearchParams(window.location.search);
-  const id = params.get('id');
-
-  if (!id) {
-    root.innerHTML = '<div class="card">Missing post id.</div>';
-    return;
-  }
-
-  root.innerHTML = '<div class="card">Loading post...</div>';
-  try {
-    const posts = await fetchPosts();
-    const post = posts.find((entry) => entry.id === id);
-
-    if (!post) {
-      root.innerHTML = '<div class="card">Post not found.</div>';
-      return;
-    }
-
-    root.innerHTML = `
-      <article class="card prose">
-        <div class="meta">${post.type || 'Note'} · ${new Date(post.publishedAt).toLocaleDateString()}</div>
-        <h1 class="page-title" style="font-size:clamp(2rem,7vw,4rem)">${post.title}</h1>
-        <p class="lead" style="border-left-width:2px">${post.summary || ''}</p>
-        <p>${(post.content || '').replace(/\n/g, '<br>')}</p>
-      </article>
-    `;
-  } catch {
-    root.innerHTML = '<div class="card">Unable to load post.</div>';
-  }
-}
-
 setActiveNav();
-renderPostDetail();

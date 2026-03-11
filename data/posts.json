@@ -3,18 +3,18 @@
     "id": "post-001",
     "title": "The Arrogance Misconception — Or Why Passion Reads As Pride",
     "summary": "On being misread by people who mistake intensity for ego.",
-    "content": "Intensity can look like arrogance from a distance. This note explores why conviction, focus, and emotional investment are often interpreted as ego.",
     "type": "Essay",
     "publishedAt": "2025-01-12T10:00:00.000Z",
-    "featured": true
+    "featured": true,
+    "url": "posts/post-001.html"
   },
   {
     "id": "post-002",
     "title": "Why Every Economics Student Should Read More Novels",
     "summary": "And why every novelist should take one econometrics course.",
-    "content": "Economics sharpens your model of incentives. Fiction sharpens your model of people. You need both.",
     "type": "Rant",
     "publishedAt": "2025-02-16T10:00:00.000Z",
-    "featured": false
+    "featured": false,
+    "url": "posts/post-002.html"
   }
 ]
