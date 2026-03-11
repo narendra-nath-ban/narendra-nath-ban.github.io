@@ -296,11 +296,20 @@ a {
 
 .about-img {
   width: 280px;
-  max-width: 100%;
+  min-width: 280px;
   height: 360px;
   object-fit: cover;
   object-position: center top;
   border-radius: 8px;
-  margin-bottom: 2rem;
   display: block;
+}
+
+.about-layout {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+.about-text {
+  flex: 1;
 }
