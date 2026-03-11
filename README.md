@@ -1,30 +1,20 @@
-# Narendra Nath Banerjee — Full-Stack Blog + Portfolio
+# Narendra Nath Banerjee — Portfolio + Writing Site
 
-A fully functioning website with a readable cyber-noir design, dynamic blog, and editable backend.
+A static portfolio and blog-style writing website with a cyber-noir visual system.
 
 ## Included pages
 
 - `/` (`index.html`) – homepage + featured writing feed
 - `/work.html` – projects/work highlights
-- `/writings.html` – full backend-driven writing archive
+- `/writings.html` – complete writing archive
 - `/post.html?id=<post-id>` – single post view
 - `/about.html` – about page
 - `/contact.html` – contact page
-- `/admin` or `/admin.html` – post management dashboard
 
-## Backend
+## Post publishing workflow
 
-`server.js` runs a dependency-free Node.js HTTP server with JSON persistence in `data/posts.json`.
-
-### API routes
-
-- `GET /api/health`
-- `GET /api/posts`
-- `GET /api/posts?all=1`
-- `GET /api/posts/:id`
-- `POST /api/posts` (requires `x-admin-token`)
-- `PUT /api/posts/:id` (requires `x-admin-token`)
-- `DELETE /api/posts/:id` (requires `x-admin-token`)
+Posts are managed manually by editing `data/posts.json` directly in the codebase.
+No admin panel or in-browser CMS is included.
 
 ## Run locally
 
@@ -33,9 +23,3 @@ npm start
 ```
 
 Visit `http://localhost:3000`.
-
-Set a custom admin token:
-
-```bash
-ADMIN_TOKEN=my-secret npm start
-```

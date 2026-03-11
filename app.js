@@ -1,5 +1,5 @@
 async function fetchPosts() {
-  const response = await fetch('/api/posts');
+  const response = await fetch('data/posts.json');
   if (!response.ok) throw new Error('Could not load posts');
   return response.json();
 }
@@ -20,10 +20,11 @@ async function renderPostFeed(targetId, limit = null) {
   root.innerHTML = '<div class="card">Loading posts...</div>';
   try {
     const posts = await fetchPosts();
-    const list = typeof limit === 'number' ? posts.slice(0, limit) : posts;
+    const sorted = posts.sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt));
+    const list = typeof limit === 'number' ? sorted.slice(0, limit) : sorted;
 
     if (!list.length) {
-      root.innerHTML = '<div class="card">No posts yet. Add your first post from the admin panel.</div>';
+      root.innerHTML = '<div class="card">No posts yet. Add your first post by editing data/posts.json.</div>';
       return;
     }
 
@@ -60,13 +61,14 @@ async function renderPostDetail() {
 
   root.innerHTML = '<div class="card">Loading post...</div>';
   try {
-    const response = await fetch(`/api/posts/${encodeURIComponent(id)}`);
-    if (!response.ok) {
+    const posts = await fetchPosts();
+    const post = posts.find((entry) => entry.id === id);
+
+    if (!post) {
       root.innerHTML = '<div class="card">Post not found.</div>';
       return;
     }
 
-    const post = await response.json();
     root.innerHTML = `
       <article class="card prose">
         <div class="meta">${post.type || 'Note'} · ${new Date(post.publishedAt).toLocaleDateString()}</div>
