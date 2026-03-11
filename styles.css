@@ -68,6 +68,16 @@ a {
   backdrop-filter: blur(6px);
 }
 
+.nav {
+  background: rgba(15, 5, 5, 0.92);
+  border-bottom: 1px solid var(--red);
+}
+
+.footer {
+  background: #0f0505;
+  border-top: 2px solid var(--red);
+}
+
 .nav-inner {
   display: flex;
   justify-content: space-between;
